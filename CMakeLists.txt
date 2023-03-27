@@ -8,7 +8,6 @@ set(SONAME_MINOR 0)
 include_directories(lib/include)
 
 add_library(tree-sitter SHARED
-        lib/src/alloc.c
         lib/src/get_changed_ranges.c
         lib/src/language.c
         lib/src/lexer.c
@@ -21,7 +20,7 @@ add_library(tree-sitter SHARED
         lib/src/tree.c
         )
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
 # We don't add `-std=gnu99` here as CMake sets this automatically for GNU-compatible compilers.
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
 
