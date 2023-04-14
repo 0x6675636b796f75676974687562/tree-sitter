@@ -25,8 +25,11 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror")
 # We don't add `-std=gnu99` here as CMake sets this automatically for GNU-compatible compilers.
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
 
-# Don't add the `lib` prefix on Windows.
+# Strip the binary
+set_target_properties(tree-sitter PROPERTIES LINK_FLAGS_RELEASE "-s")
+
 if(WIN32)
+    # Don't add the `lib` prefix on Windows.
     set_target_properties(tree-sitter PROPERTIES PREFIX "")
 endif()
 
